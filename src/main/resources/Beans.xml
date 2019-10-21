@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<beans  xmlns="http://www.springframework.org/schema/beans"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xmlns:context="http://www.springframework.org/schema/context"
+        xsi:schemaLocation="http://www.springframework.org/schema/beans
+    http://www.springframework.org/schema/beans/spring-beans-3.0.xsd
+    http://www.springframework.org/schema/context
+    http://www.springframework.org/schema/context/spring-context-3.0.xsd"
+>
+   <!-- init-method="init" destroy-method="destroy"-->
+
+
+<!--    <bean id="test" class="com.sion.entry.Test" >
+        <property name="message1" value="Hello World11"/>
+        <property name="message2" value="Hello World22"/>
+    </bean>
+
+    <bean id="testChildren" class="com.sion.entry.TestChildren" parent="test" >
+        <property name="message1" value="children1"/>
+        <property name="message3" value="children3"/>
+    </bean>-->
+
+<!--    <bean id="student" class="com.sion.entry.Student">
+        <property name="age" value=""/>
+    </bean>-->
+
+
+    <context:annotation-config/>
+
+    <bean id="textEditor" class="com.sion.entry.TextEditor">
+    </bean>
+
+    <bean id="spellChecker" class="com.sion.entry.SpellChecker" >
+    </bean>
+
+  <!--  <bean id="test" class="com.sion.entry.JavaCollection"></bean>
+    <bean id="javaCollection" class="com.sion.entry.JavaCollection">
+        <property name="addressList">
+            <list>
+                <value>INDIA</value>
+                <value>Pakistan</value>
+                <value>USA</value>
+                <value>USA</value>
+            </list>
+        </property>
+        <property name="addressSet">
+            <set>
+                <value>INDIA</value>
+                <value>Pakistan</value>
+                <value>USA</value>
+                <value>USA</value>
+            </set>
+        </property>
+        <property name="addressMap">
+            <map>
+                <entry key="1" value="afmin1"></entry>
+                <entry key="2" value="afmin2"></entry>
+                <entry key="3" value="afmin3"></entry>
+                <entry key="4" value="afmin4"></entry>
+            </map>
+        </property>
+        <property name="addressProp">
+            <props>
+                <prop key="one">INDIA</prop>
+                <prop key="two">Pakistan</prop>
+                <prop key="three">USA</prop>
+                <prop key="four">USA</prop>
+            </props>
+        </property>
+    </bean>-->
+
+<!--    <bean id="testEditor" class="com.sion.entry.TestEditor">
+        <constructor-arg index="0" ref="spellChecker" />
+        <constructor-arg index="1" type="java.lang.String" value="admin" />
+    </bean>-->
+
+    <!--<bean class="com.sion.entry.InitTest"></bean>-->
+
+<!--    <bean id="initBean" class="com.sion.entry.exampleBean" init-method="afterPropertiesSet">
+    </bean>-->
+
+<!--    <bean id="test" class="com.sion.entry.Test">
+        <property name="message" value="Hello World!"/>
+    </bean>-->
+
+<!--    &lt;!&ndash; A simple bean definition &ndash;&gt;
+    <bean id="..." class="...">
+        &lt;!&ndash; collaborators and configuration for this bean go here &ndash;&gt;
+    </bean>
+
+    &lt;!&ndash; A bean definition with lazy init set on &ndash;&gt;
+    <bean id="..." class="..." lazy-init="true">
+        &lt;!&ndash; collaborators and configuration for this bean go here &ndash;&gt;
+    </bean>
+
+    &lt;!&ndash; A bean definition with initialization method &ndash;&gt;
+    <bean id="..." class="..." init-method="...">
+        &lt;!&ndash; collaborators and configuration for this bean go here &ndash;&gt;
+    </bean>
+
+    &lt;!&ndash; A bean definition with destruction method &ndash;&gt;
+    <bean id="..." class="..." destroy-method="...">
+        &lt;!&ndash; collaborators and configuration for this bean go here &ndash;&gt;
+    </bean>-->
+
+    <!-- more bean definitions go here -->
+</beans>
