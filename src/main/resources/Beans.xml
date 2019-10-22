@@ -1,38 +1,79 @@
 <?xml version="1.0" encoding="UTF-8"?>
-
-<beans  xmlns="http://www.springframework.org/schema/beans"
-        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-        xmlns:context="http://www.springframework.org/schema/context"
-        xsi:schemaLocation="http://www.springframework.org/schema/beans
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:aop="http://www.springframework.org/schema/aop"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
     http://www.springframework.org/schema/beans/spring-beans-3.0.xsd
-    http://www.springframework.org/schema/context
-    http://www.springframework.org/schema/context/spring-context-3.0.xsd"
->
-   <!-- init-method="init" destroy-method="destroy"-->
+    http://www.springframework.org/schema/aop
+    http://www.springframework.org/schema/aop/spring-aop-3.0.xsd ">
 
+<!--    <aop:config>
+        <aop:aspect id="log" ref="logging">
+            <aop:pointcut id="selectAll" expression="execution(* com.sion..*..*(..))"/>
+            <aop:before  pointcut-ref="selectAll" method="beforeAdvice"/>
+            <aop:after  pointcut-ref="selectAll" method="afterAdvice" />
+            <aop:after-returning pointcut-ref="selectAll" method="afterReturningAdvice" returning="retVal"/>
+            <aop:after-throwing pointcut-ref="selectAll" method="afterThrowingAdvice" throwing="ex" />
+        </aop:aspect>
+    </aop:config>-->
 
-<!--    <bean id="test" class="com.sion.entry.Test" >
-        <property name="message1" value="Hello World11"/>
-        <property name="message2" value="Hello World22"/>
+    <aop:config>
+        <aop:aspect id="log" ref="logging">
+            <aop:pointcut id="selectAll" expression="execution(* com.sion.Aop.*.*(..))"/>
+            <aop:before pointcut-ref="selectAll" method="beforeAdvice"/>
+            <aop:after pointcut-ref="selectAll" method="afterAdvice"/>
+            <aop:after-returning pointcut-ref="selectAll"
+                                 returning="retVal"
+                                 method="afterReturningAdvice"/>
+            <aop:after-throwing pointcut-ref="selectAll"
+                                throwing="ex"
+                                method="afterThrowingAdvice"/>
+        </aop:aspect>
+    </aop:config>
+
+    <!-- Definition for student bean -->
+    <bean id="student" class="com.sion.Aop.Student">
+        <property name="name"  value="Zara" />
+        <property name="age"  value="11"/>
     </bean>
 
-    <bean id="testChildren" class="com.sion.entry.TestChildren" parent="test" >
-        <property name="message1" value="children1"/>
-        <property name="message3" value="children3"/>
+    <!-- Definition for logging aspect -->
+    <bean id="logging" class="com.sion.Aop.Logging"/>
+
+    <!--  <bean id="customEventHandler"
+            class="com.sion.entry.CustomerEventHander"/>
+
+      <bean id="customEventPublisher"
+            class="com.sion.entry.CustomEventPublisher"/>-->
+    <!--<bean id="lifeBean" class="com.sion.entry.LifeBean">-->
+        <!--<property name="message" value="Hello World"/>-->
+    <!--</bean>-->
+
+<!--    <bean id="cStartEventHander" class="com.sion.entry.CStartEventHander">
+    </bean>
+
+    <bean id="cStopEventHander" class="com.sion.entry.CStopEventHander">
     </bean>-->
 
-<!--    <bean id="student" class="com.sion.entry.Student">
-        <property name="age" value=""/>
+<!--    <context:annotation-config/>
+    <bean id="lifeBean" class="com.sion.entry.LifeBean">
+        <property name="message" value="hi"/>
     </bean>-->
 
-
-    <context:annotation-config/>
-
-    <bean id="textEditor" class="com.sion.entry.TextEditor">
+<!--    <bean id="peofile" class="com.sion.entry.Profile"></bean>
+    <bean id="student1" class="com.sion.entry.Student">
+        <property name="name" value="Zara"/>
+        <property name="age" value="11"/>
+    </bean>
+    <bean id="student2" class="com.sion.entry.Student">
+        <property name="name" value="Nuha"/>
+        <property name="age" value="13"/>
+    </bean>-->
+<!--    <bean id="textEditor" class="com.sion.entry.TextEditor">
     </bean>
 
     <bean id="spellChecker" class="com.sion.entry.SpellChecker" >
-    </bean>
+    </bean>-->
 
   <!--  <bean id="test" class="com.sion.entry.JavaCollection"></bean>
     <bean id="javaCollection" class="com.sion.entry.JavaCollection">
@@ -70,39 +111,4 @@
         </property>
     </bean>-->
 
-<!--    <bean id="testEditor" class="com.sion.entry.TestEditor">
-        <constructor-arg index="0" ref="spellChecker" />
-        <constructor-arg index="1" type="java.lang.String" value="admin" />
-    </bean>-->
-
-    <!--<bean class="com.sion.entry.InitTest"></bean>-->
-
-<!--    <bean id="initBean" class="com.sion.entry.exampleBean" init-method="afterPropertiesSet">
-    </bean>-->
-
-<!--    <bean id="test" class="com.sion.entry.Test">
-        <property name="message" value="Hello World!"/>
-    </bean>-->
-
-<!--    &lt;!&ndash; A simple bean definition &ndash;&gt;
-    <bean id="..." class="...">
-        &lt;!&ndash; collaborators and configuration for this bean go here &ndash;&gt;
-    </bean>
-
-    &lt;!&ndash; A bean definition with lazy init set on &ndash;&gt;
-    <bean id="..." class="..." lazy-init="true">
-        &lt;!&ndash; collaborators and configuration for this bean go here &ndash;&gt;
-    </bean>
-
-    &lt;!&ndash; A bean definition with initialization method &ndash;&gt;
-    <bean id="..." class="..." init-method="...">
-        &lt;!&ndash; collaborators and configuration for this bean go here &ndash;&gt;
-    </bean>
-
-    &lt;!&ndash; A bean definition with destruction method &ndash;&gt;
-    <bean id="..." class="..." destroy-method="...">
-        &lt;!&ndash; collaborators and configuration for this bean go here &ndash;&gt;
-    </bean>-->
-
-    <!-- more bean definitions go here -->
 </beans>
